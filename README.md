@@ -1,2 +1,7 @@
-# elefante
-Esgotamento DHCP
+    O esgotamento DHCP, também chamado de DHCP Starvation, é um ataque de rede que tem como objetivo esgotar todos os endereços IP disponíveis em um servidor DHCP. O servidor DHCP é responsável por distribuir automaticamente os endereços IP para os dispositivos que entram na rede, garantindo que cada máquina consiga se conectar e se comunicar corretamente.
+
+    No ataque, o invasor finge ser vários dispositivos, criando múltiplos endereços MAC falsos. Ele envia diversas requisições ao servidor DHCP, pedindo IPs repetidamente. Como resultado, o pool de endereços disponíveis se esgota rapidamente. Com isso, os dispositivos legítimos que tentam se conectar à rede não recebem IP e ficam sem acesso.
+
+    Há variações desse ataque. O mais simples é apenas esgotar o pool, mas existe uma forma mais avançada chamada DHCP Spoofing, em que o atacante também cria um servidor DHCP falso. Nesse caso, além de esgotar os IPs legítimos, ele consegue fornecer endereços controlados por ele, abrindo caminho para ataques de interceptação de tráfego, conhecidos como Man-in-the-Middle. Alguns ataques combinam as duas técnicas, primeiro esgotando o pool legítimo e depois oferecendo IPs maliciosos através do servidor falso.
+
+    É possível adotar algumas medidas para midigar os riscos. Uma delas é o DHCP Snooping, que permite ao switch diferenciar quais portas são confiáveis e quais não são, bloqueando requisições suspeitas. Também é recomendável limitar o número de requisições DHCP por porta, usar filtragem de MAC ou segurança de porta para restringir quantos dispositivos podem se conectar por ponto da rede, segmentar a rede em sub-redes menores e reservar IPs estáticos para dispositivos essenciais, como servidores e roteadores. Além disso, um monitoramento ativo do consumo de IPs ajuda a identificar ataques em andamento antes que eles causem problemas sérios.
